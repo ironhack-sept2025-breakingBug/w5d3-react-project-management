@@ -31,6 +31,10 @@ function ProjectDetailsPage() {
             <h1>{project.title}</h1>
             <p>{project.description}</p>
 
+            <Link to={`/projects/edit/${project.id}`}>
+                <button>Edit</button>
+            </Link>
+
             <Link to="/projects">
                 <button>Back to projects</button>
             </Link>
