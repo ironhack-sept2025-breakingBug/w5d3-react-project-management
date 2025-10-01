@@ -1,9 +1,9 @@
 import { use, useEffect, useState } from 'react';
 import axios from 'axios'
 
+import { BASE_URL } from '../config/api';
 import Loader from '../components/Loader';
 
-const BASE_URL = 'https://project-management-api-2e731c3b8929.herokuapp.com'
 
 
 function ProjectListPage() {

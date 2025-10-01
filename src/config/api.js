@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://project-management-api.edu.ironhack.com'
