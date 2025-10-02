@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Button, Checkbox, MultiSelect, SimpleGrid } from "@mantine/core";
 
 import { BASE_URL } from "../config/api";
 import Loader from "../components/Loader";
@@ -52,26 +53,27 @@ function ProjectDetailsPage() {
             <AddTask projectId={projectId} onRefresh={getProject} />
 
             {/* List of tasks */}
-            {project.tasks.map((task) => {
-                return (
-                    <div className="TaskCard card" key={task.id}>
-                        <h3>{task.title}</h3>
-                        <h4>Description:</h4>
-                        <p>{task.description}</p>
-                    </div>)
-            })}
+            <SimpleGrid cols={{base: 1, md: 3}}>
+                {project.tasks.map((task) => {
+                    return (
+                        <div className="TaskCard card" key={task.id}>
+                            <h3>{task.title}</h3>
+                            <h4>Description:</h4>
+                            <p>{task.description}</p>
+                        </div>)
+                })}
+            </SimpleGrid>
 
 
             <Link to={`/projects/edit/${project.id}`}>
-                <button>Edit</button>
+                <Button variant="outline" color="indigo">Edit</Button>
             </Link>
 
 
-            <button onClick={deleteProject}>Delete</button>
-
+            <Button onClick={deleteProject} variant="outline" color="red">Delete</Button>
 
             <Link to="/projects">
-                <button>Back to projects</button>
+                <Button color="indigo">Back to projects</Button>
             </Link>
         </div>
     );
